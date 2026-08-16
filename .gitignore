@@ -1,0 +1,8 @@
+node_modules/
+*.log
+.DS_Store
+
+# Child frontend applications are independent repositories.
+nodics.axis/
+nodics.nexus/
+nodics.agora/

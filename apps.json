@@ -1,0 +1,43 @@
+{
+  "contractVersion": 1,
+  "workspace": "nodics.exp",
+  "ownership": {
+    "owns": ["frontend-workspace", "frontend-app-catalogue", "frontend-tooling"],
+    "doesNotOwn": ["frontend-application-source", "frontend-application-release", "backend-importable-data"]
+  },
+  "apps": {
+    "axis": {
+      "name": "nodics.axis",
+      "displayName": "Axis BackOffice",
+      "folder": "nodics.axis",
+      "siblingFallback": "../nodics.axis",
+      "type": "backoffice",
+      "requiredFor": ["admin", "backoffice"],
+      "repository": "https://github.com/Nodics/nodics.axis.git",
+      "packageName": "nodics.axis",
+      "verifyScript": "verify"
+    },
+    "nexus": {
+      "name": "nodics.nexus",
+      "displayName": "Nexus corporate website",
+      "folder": "nodics.nexus",
+      "siblingFallback": "../nodics.nexus",
+      "type": "corporate",
+      "requiredFor": ["corporate-site", "public-website"],
+      "repository": "https://github.com/Nodics/nodics.nexus.git",
+      "packageName": "nodics.nexus",
+      "verifyScript": "verify"
+    },
+    "agora": {
+      "name": "nodics.agora",
+      "displayName": "Agora commerce storefront",
+      "folder": "nodics.agora",
+      "siblingFallback": "../nodics.agora",
+      "type": "storefront",
+      "requiredFor": ["commerce-storefront", "customer-journey"],
+      "repository": "https://github.com/Nodics/nodics.agora.git",
+      "packageName": "nodics.agora",
+      "verifyScript": "verify:multi-domain"
+    }
+  }
+}

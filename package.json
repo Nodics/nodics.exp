@@ -1,0 +1,29 @@
+{
+  "name": "nodics.exp",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Nodics frontend workspace orchestration repository.",
+  "type": "commonjs",
+  "scripts": {
+    "apps:list": "node tooling/apps-list.js",
+    "apps:status": "node tooling/apps-status.js",
+    "apps:fetch": "node tooling/apps-fetch.js",
+    "apps:verify": "node tooling/apps-verify.js",
+    "test": "node tooling/apps-contract.test.js"
+  },
+  "nodics": {
+    "kind": "ui-workspace",
+    "runtimeModule": false,
+    "owns": [
+      "frontend-workspace",
+      "frontend-app-catalogue",
+      "frontend-tooling"
+    ],
+    "doesNotOwn": [
+      "nodics.axis source",
+      "nodics.nexus source",
+      "nodics.agora source",
+      "backend-importable data"
+    ]
+  }
+}
