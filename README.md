@@ -87,6 +87,28 @@ catalogue when a user chooses Axis, Nexus, or Agora. Builder may ask beginner
 questions such as "Do you need a storefront?" and then map that answer to
 `nodics.agora` without requiring the user to know repository names.
 
+## Template repository governance
+
+The `nodics.exp` registration model is a Nodics-owned template and framework
+governance rule. It applies to repositories maintained under the Nodics
+organization for reusable framework experiences, partner starter templates, and
+customer-project templates that Nodics publishes as reference assets.
+
+When Nodics adds a new reusable experience app under `github.com/Nodics`, the
+app must be registered in `apps.json` and kept as an independent repository.
+That creates two explicit release surfaces:
+
+- the app repository owns its source, tests, release history, and CI;
+- `nodics.exp` owns only catalogue discovery, setup/status/verification
+  tooling, and local workspace orchestration.
+
+This rule must not be applied as a restriction on real customer-owned projects.
+Customers and delivery teams may keep their actual projects in their own Git
+organizations, monorepos, polyrepos, workspace layouts, CI systems, naming
+schemes, and release processes. They should consume Nodics framework contracts,
+generated outputs, template examples, and documented extension points, but they
+do not need to change or publish anything under `github.com/Nodics`.
+
 ## Rules
 
 - Commit workspace tooling changes in `nodics.exp`.
