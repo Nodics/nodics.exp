@@ -8,6 +8,20 @@ but it does not take ownership of their source code. `nodics.axis`,
 with their own package names, Git history, release flow, CI, issues, tests, and
 runtime behavior.
 
+## AI tool entry
+
+A beginner user can start from Codex, Claude Code, GitHub Copilot, or another
+repository-aware AI coding tool by providing the Nodics experience repository
+URL directly. The user does not need to run `nodics.installer` first when the
+goal is repository exploration or source changes.
+
+The AI tool must first read root `AGENTS.md`, then this README, then `apps.json`.
+For application source changes it must continue into the owning app guidance,
+such as `nodics.axis/AGENTS.md`, `nodics.nexus/AGENTS.md`,
+`nodics.agora/AGENTS.md`, or the nearest child application README/AGENTS file.
+Use `nodics.installer` only when the goal is to create, repair, preflight,
+start, initialize, accept, or inspect a local customer workspace.
+
 ## Ownership
 
 `nodics.exp` owns:

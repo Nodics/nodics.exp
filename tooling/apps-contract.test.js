@@ -37,4 +37,21 @@ const readme = fs.readFileSync(path.join(catalogueService.workspaceRoot(), 'READ
     assert(readme.includes(clause), 'README must preserve ownership guidance: ' + clause);
 });
 
+[
+    'AGENTS.md',
+    'README.md'
+].forEach(relativePath => {
+    const content = fs.readFileSync(path.join(catalogueService.workspaceRoot(), relativePath), 'utf8')
+        .replace(/\s+/g, ' ');
+    [
+        'Codex',
+        'Claude Code',
+        'GitHub Copilot',
+        'repository URL',
+        'does not need to run `nodics.installer` first'
+    ].forEach(clause => {
+        assert(content.includes(clause), relativePath + ' must preserve AI repository entry guidance: ' + clause);
+    });
+});
+
 console.log('nodics.exp app catalogue contract validated');
