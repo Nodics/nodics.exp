@@ -19,7 +19,7 @@ build/
 # Child frontend applications are independent repositories.
 nodics.axis/
 nodics.nexus/
-nodics.agora/
+nodics.agora.apparel/
 nodics.agora.apparel/
 nodics.agora.electronics/
 nodics.agora.telco/
