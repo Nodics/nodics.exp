@@ -11,7 +11,7 @@
 
 /**
  * @module nodics.exp/tooling/app-catalogue
- * @description Loads the frontend application catalogue and provides repository-safe list, status, fetch, and verify helpers for independent child app repositories.
+ * @description Loads the frontend application/package catalogue and provides repository-safe list, status, fetch, and verify helpers for independent child repositories.
  * @layer tooling
  * @owner nodics.exp
  * @override Workspace tooling may extend catalogue fields, but must preserve child-repository ownership, selected-app execution, and delegation to each app's own package scripts.
@@ -38,7 +38,7 @@ module.exports = {
         return (args || []).includes(name);
     },
 
-    /** Loads the frontend app catalogue. */
+    /** Loads the frontend app/package catalogue. */
     loadCatalogue: function () {
         const cataloguePath = path.join(this.workspaceRoot(), 'apps.json');
         return JSON.parse(fs.readFileSync(cataloguePath, 'utf8'));
@@ -75,7 +75,7 @@ module.exports = {
         return Object.keys(catalogue.apps || {}).sort();
     },
 
-    /** Resolves app selections from `--app`, `--apps`, `--all`, or `--all-present`. */
+    /** Resolves frontend entry selections from `--app`, `--apps`, `--all`, or `--all-present`. */
     selectedCodes: function (args, catalogue, presentOnly) {
         if (this.hasFlag(args, '--all') || this.hasFlag(args, '--all-present')) {
             const codes = this.appCodes(catalogue);
@@ -88,7 +88,7 @@ module.exports = {
         const codes = selected.split(',').map(value => value.trim()).filter(Boolean);
         codes.forEach(code => {
             if (!catalogue.apps[code]) {
-                throw new Error('Unknown frontend app `' + code + '`. Run npm run apps:list.');
+                throw new Error('Unknown frontend catalogue entry `' + code + '`. Run npm run apps:list.');
             }
         });
         return Array.from(new Set(codes)).sort();
@@ -110,7 +110,7 @@ module.exports = {
         }
     },
 
-    /** Resolves where an app repository exists, preferring the nested workspace folder. */
+    /** Resolves where an app/package repository exists, preferring the nested workspace folder. */
     resolveAppDirectory: function (app) {
         const nested = path.join(this.workspaceRoot(), app.folder);
         if (fs.existsSync(path.join(nested, 'package.json'))) {
@@ -123,7 +123,7 @@ module.exports = {
         return { present: false, directory: nested, location: 'missing' };
     },
 
-    /** Returns status for one frontend app. */
+    /** Returns status for one frontend catalogue entry. */
     statusFor: function (app) {
         const resolved = this.resolveAppDirectory(app);
         const packageJson = resolved.present ? this.readPackage(resolved.directory) : null;
@@ -155,7 +155,7 @@ module.exports = {
         console.log(JSON.stringify(result, null, 2));
     },
 
-    /** Clones a missing app into its nested workspace folder. */
+    /** Clones a missing app/package into its nested workspace folder. */
     fetchApp: function (app, code, dryRun) {
         const status = this.statusFor(app);
         if (status.present) {
@@ -170,7 +170,7 @@ module.exports = {
         return { code: code, fetched: true, directory: status.directory };
     },
 
-    /** Runs or previews one app's own verify script. */
+    /** Runs or previews one app/package's own verify script. */
     verifyApp: function (app, code, dryRun) {
         const status = this.statusFor(app);
         if (!status.present) {

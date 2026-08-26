@@ -1,8 +1,8 @@
 # Nodics Experience Workspace Agent Contract
 
 `nodics.exp` is the Nodics frontend workspace and orchestration repository. It
-helps discover, fetch, inspect, and verify Nodics-owned frontend applications,
-but it does not own the application source code.
+helps discover, fetch, inspect, and verify Nodics-owned frontend applications
+and shared frontend packages, but it does not own their source code.
 
 ## AI tool GitHub entry path
 
@@ -15,9 +15,10 @@ When started from this repository URL, the AI tool must:
 1. read this root `AGENTS.md`;
 2. read root `README.md`;
 3. inspect `apps.json` before changing frontend catalogue or workspace tooling;
-4. descend into `nodics.axis/AGENTS.md`, `nodics.nexus/AGENTS.md`,
-   `nodics.agora/AGENTS.md`, or the owning child application README/AGENTS
-   file before app source changes;
+4. descend into `nodics.axis/AGENTS.md`, `nodics.nexus/AGENTS.md`, the selected
+   `nodics.agora.*` app `AGENTS.md`, `domain.commerce.ui/AGENTS.md`, or the
+   owning child application README/AGENTS file before app/package source
+   changes;
 5. use `nodics.installer` only when asked to create, repair, preflight, start,
    initialize, accept, or inspect a local customer workspace;
 6. never commit child application source as `nodics.exp` workspace tooling.
@@ -26,8 +27,12 @@ When started from this repository URL, the AI tool must:
 
 - `nodics.exp` owns `apps.json`, workspace-level list/status/fetch/verify
   tooling, and shared frontend workspace guidance.
-- Child frontend applications own their own source code, tests, package
-  metadata, release behavior, and application-specific documentation.
+- Child frontend applications and shared frontend packages own their own source
+  code, tests, package metadata, release behavior, and application-specific
+  documentation.
+- `domain.commerce.ui` is a source repository for shared UI maintainers, but
+  domain storefront applications must consume it as a versioned package for
+  normal customer/partner use.
 - Backend APIs, generated contracts, CMS records, product/catalogue data,
   importable data, secrets, tenancy, and business authority remain outside this
   repository.
@@ -37,8 +42,11 @@ When started from this repository URL, the AI tool must:
 - Change `apps.json` only when registering or correcting a Nodics-owned
   frontend application catalogue entry.
 - Change `tooling/` only for workspace orchestration behavior.
-- Change child app source inside the child app repository context and follow
-  that app's nearest `AGENTS.md`.
+- Change child app or shared package source inside the child repository context
+  and follow that repository's nearest `AGENTS.md`.
+- Do not make a runnable domain storefront require a manual local
+  `domain.commerce.ui` source checkout unless the user explicitly asks for
+  framework source development.
 - Keep customer-local generated projects out of this repository unless the user
   explicitly asks for reusable template/source changes.
 
