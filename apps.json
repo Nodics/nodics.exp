@@ -17,18 +17,6 @@
       "packageName": "nodics.axis",
       "verifyScript": "verify"
     },
-    "domainCommerceUi": {
-      "name": "domain.commerce.ui",
-      "displayName": "Domain Commerce UI",
-      "folder": "domain.commerce.ui",
-      "siblingFallback": "../domain.commerce.ui",
-      "type": "frontend-library",
-      "requiredFor": ["commerce-storefront-shared-ui", "domain-storefront-renderers"],
-      "repository": "https://github.com/Nodics/domain.commerce.ui.git",
-      "packageName": "domain.commerce.ui",
-      "distributionMode": "versioned-package",
-      "verifyScript": "verify"
-    },
     "nexus": {
       "name": "nodics.nexus",
       "displayName": "Nexus corporate website",
@@ -49,7 +37,6 @@
       "requiredFor": ["apparel-commerce-storefront", "apparel-customer-journey"],
       "repository": "https://github.com/Nodics/nodics.agora.apparel.git",
       "packageName": "nodics.agora.apparel",
-      "consumesPackages": ["domain.commerce.ui"],
       "verifyScript": "verify"
     },
     "agoraElectronics": {
@@ -61,7 +48,6 @@
       "requiredFor": ["electronics-commerce-storefront", "electronics-customer-journey"],
       "repository": "https://github.com/Nodics/nodics.agora.electronics.git",
       "packageName": "nodics.agora.electronics",
-      "consumesPackages": ["domain.commerce.ui"],
       "verifyScript": "verify"
     },
     "agoraTelco": {
@@ -73,7 +59,6 @@
       "requiredFor": ["telco-commerce-storefront", "telco-customer-journey"],
       "repository": "https://github.com/Nodics/nodics.agora.telco.git",
       "packageName": "nodics.agora.telco",
-      "consumesPackages": ["domain.commerce.ui"],
       "verifyScript": "verify"
     }
   }

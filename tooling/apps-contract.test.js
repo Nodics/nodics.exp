@@ -10,7 +10,6 @@ assert.deepStrictEqual(catalogueService.appCodes(catalogue), [
     'agoraElectronics',
     'agoraTelco',
     'axis',
-    'domainCommerceUi',
     'nexus'
 ]);
 
@@ -23,17 +22,14 @@ catalogueService.appCodes(catalogue).forEach(code => {
 });
 
 ['agoraApparel', 'agoraElectronics', 'agoraTelco'].forEach(code => {
-    assert.deepStrictEqual(catalogue.apps[code].consumesPackages, ['domain.commerce.ui'],
-        code + ' must consume shared Commerce UI as a package, not require a manual source checkout');
+    assert.strictEqual(catalogue.apps[code].consumesPackages, undefined,
+        code + ' must be self-contained and not require a shared UI source/package checkout');
     const agora = catalogueService.statusFor(catalogue.apps[code]);
     assert(agora.name.startsWith('nodics.agora.'), code + ' must be a domain-specific Agora app');
     if (agora.present) {
         assert.strictEqual(agora.packageMatches, true, 'Detected ' + code + ' package must preserve app identity');
     }
 });
-
-assert.strictEqual(catalogue.apps.domainCommerceUi.distributionMode, 'versioned-package',
-    'domain.commerce.ui must be distributed as a package for storefront consumers');
 
 const dryRun = catalogueService.fetchApp(catalogue.apps.agoraApparel, 'agoraApparel', true);
 assert.strictEqual(dryRun.fetched, false, 'Dry-run fetch must not clone');
@@ -46,9 +42,8 @@ const readme = fs.readFileSync(path.join(catalogueService.workspaceRoot(), 'READ
     'does not take ownership',
     'Commit workspace tooling changes in `nodics.exp`',
     'Commit Axis changes in `nodics.axis`',
-    'Commit shared Commerce UI changes in `domain.commerce.ui`',
     'Commit Agora Apparel changes in `nodics.agora.apparel`',
-    'Customers should not need to clone `domain.commerce.ui`',
+    'Domain storefront templates must be self-contained',
     'Do not put backend-importable data in `nodics.exp`'
 ].forEach(clause => {
     assert(readme.includes(clause), 'README must preserve ownership guidance: ' + clause);
