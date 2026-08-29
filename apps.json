@@ -2,7 +2,7 @@
   "contractVersion": 1,
   "workspace": "nodics.exp",
   "ownership": {
-    "owns": ["frontend-workspace", "frontend-app-catalogue", "frontend-tooling"],
+    "owns": ["frontend-workspace", "frontend-app-catalogue", "frontend-workspace-tools"],
     "doesNotOwn": ["frontend-application-source", "frontend-application-release", "backend-importable-data"]
   },
   "apps": {

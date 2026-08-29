@@ -10,18 +10,18 @@
  */
 
 /**
- * @module nodics.exp/tooling/app-catalogue
+ * @module nodics.exp/workspace-tools/app-catalogue
  * @description Loads the frontend application/package catalogue and provides repository-safe list, status, fetch, and verify helpers for independent child repositories.
  * @layer tooling
  * @owner nodics.exp
- * @override Workspace tooling may extend catalogue fields, but must preserve child-repository ownership, selected-app execution, and delegation to each app's own package scripts.
+ * @override Workspace tools may extend catalogue fields, but must preserve child-repository ownership, selected-app execution, and delegation to each app's own package scripts.
  */
 const childProcess = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-    /** Returns the workspace root that owns this tooling folder. */
+    /** Returns the workspace root that owns this workspace-tools folder. */
     workspaceRoot: function () {
         return path.resolve(__dirname, '..');
     },
@@ -44,7 +44,7 @@ module.exports = {
         return JSON.parse(fs.readFileSync(cataloguePath, 'utf8'));
     },
 
-    /** Validates the minimum catalogue contract used by the workspace tooling. */
+    /** Validates the minimum catalogue contract used by the workspace tools. */
     validateCatalogue: function (catalogue) {
         const errors = [];
         if (catalogue.contractVersion !== 1) {

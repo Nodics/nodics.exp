@@ -40,7 +40,7 @@ assert.strictEqual(verifyDryRun.dryRun || verifyDryRun.skipped, true,
 const readme = fs.readFileSync(path.join(catalogueService.workspaceRoot(), 'README.md'), 'utf8');
 [
     'does not take ownership',
-    'Commit workspace tooling changes in `nodics.exp`',
+    'Commit workspace tool changes in `nodics.exp`',
     'Commit Axis changes in `nodics.axis`',
     'Commit Agora Apparel changes in `nodics.agora.apparel`',
     'Domain storefront templates must be self-contained',

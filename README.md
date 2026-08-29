@@ -30,7 +30,7 @@ start, initialize, accept, or inspect a local customer workspace.
 
 - `apps.json`, the frontend application catalogue;
 - workspace-level commands for list, status, fetch, and verify;
-- shared frontend workspace guidance and tooling.
+- shared frontend workspace guidance and workspace tools.
 
 `nodics.exp` does not own:
 
@@ -48,7 +48,7 @@ nodics.exp/
 ├── package.json
 ├── README.md
 ├── apps.json
-├── tooling/
+├── workspace-tools/
 ├── nodics.axis/
 ├── nodics.nexus/
 ├── nodics.agora.apparel/
@@ -135,7 +135,7 @@ That creates two explicit release surfaces:
 
 - the app repository owns its source, tests, release history, and CI;
 - `nodics.exp` owns only catalogue discovery, setup/status/verification
-  tooling, and local workspace orchestration.
+  tools, and local workspace orchestration.
 
 This rule must not be applied as a restriction on real customer-owned projects.
 Customers and delivery teams may keep their actual projects in their own Git
@@ -148,7 +148,7 @@ partner use.
 
 ## Rules
 
-- Commit workspace tooling changes in `nodics.exp`.
+- Commit workspace tool changes in `nodics.exp`.
 - Commit Axis changes in `nodics.axis`.
 - Commit Nexus changes in `nodics.nexus`.
 - Commit Agora Apparel changes in `nodics.agora.apparel`.
