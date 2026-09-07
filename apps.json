@@ -39,6 +39,17 @@
       "packageName": "nodics.agora.apparel",
       "verifyScript": "verify"
     },
+    "circaEWaste": {
+      "name": "nodics.circa.eWaste",
+      "displayName": "Circa eWaste storefront",
+      "folder": "nodics.circa.eWaste",
+      "siblingFallback": "../nodics.circa.eWaste",
+      "type": "storefront",
+      "requiredFor": ["ewaste-customer-journey", "waste-asset-marketplace", "coupon-reward-marketplace"],
+      "repository": "https://github.com/Nodics/nodics.circa.eWaste.git",
+      "packageName": "nodics.circa.eWaste",
+      "verifyScript": "verify"
+    },
     "agoraElectronics": {
       "name": "nodics.agora.electronics",
       "displayName": "Agora Electronics storefront",
