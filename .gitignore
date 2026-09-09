@@ -17,6 +17,7 @@ build/
 **/llm/generated/
 
 # Child frontend applications are independent repositories.
+nodics.circa.eWaste/
 nodics.axis/
 nodics.nexus/
 nodics.agora.apparel/

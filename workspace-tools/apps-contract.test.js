@@ -10,6 +10,7 @@ assert.deepStrictEqual(catalogueService.appCodes(catalogue), [
     'agoraElectronics',
     'agoraTelco',
     'axis',
+    'circaEWaste',
     'nexus'
 ]);
 

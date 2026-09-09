@@ -5,7 +5,7 @@
 It groups frontend applications for discovery,
 setup, status, and verification, but it does not take ownership of their source
 code. `nodics.axis`, `nodics.nexus`, `nodics.agora.apparel`,
-`nodics.agora.electronics`, and `nodics.agora.telco` remain independent
+`nodics.agora.electronics`, `nodics.agora.telco`, and `nodics.circa.eWaste` remain independent
 repositories with their own package names, Git history, release flow, CI,
 issues, tests, and runtime behavior.
 
@@ -34,7 +34,7 @@ start, initialize, accept, or inspect a local customer workspace.
 
 `nodics.exp` does not own:
 
-- Axis, Nexus, or Agora domain storefront source;
+- Axis, Nexus, Circa, or Agora domain storefront source;
 - app-specific releases or CI;
 - backend APIs, Commerce/domain logic, CMS records, product/catalogue data, or
   any backend-importable data.
@@ -51,6 +51,7 @@ nodics.exp/
 ├── workspace-tools/
 ├── nodics.axis/
 ├── nodics.nexus/
+├── nodics.circa.eWaste/
 ├── nodics.agora.apparel/
 ├── nodics.agora.electronics/
 └── nodics.agora.telco/
@@ -63,6 +64,7 @@ nodicsRoot/
 ├── nodics.exp/
 ├── nodics.axis/
 ├── nodics.nexus/
+├── nodics.circa.eWaste/
 ├── nodics.agora.apparel/
 ├── nodics.agora.electronics/
 └── nodics.agora.telco/
