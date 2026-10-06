@@ -27,8 +27,9 @@ When started from this repository URL, the AI tool must:
 - `nodics.exp` owns `apps.json`, workspace-level list/status/fetch/verify
   tools, and shared frontend workspace guidance.
 - Child frontend applications own their own source
-  code, tests, package metadata, release behavior, and application-specific
-  documentation.
+  code, tests, package metadata and release behavior. Frontend contributor
+  guidance belongs in root or capability-near READMEs, not a separate `docs/`
+  tree. Detailed product/business documentation remains backend-owned.
 - Domain storefront templates must be self-contained: renderer contracts used
   by the template live inside the owning storefront repository so a customer or
   partner can clone one selected domain app without an extra shared UI repo.
