@@ -24,6 +24,13 @@ When started from this repository URL, the AI tool must:
 
 ## Ownership
 
+- Apply the framework nSetup mandatory default ownership gate at the consumer
+  boundary. Frontend projects own browser presentation and public deployment
+  inputs, not backend publication providers, permissions or business policy.
+  Keep sample site/store selections explicit and separate from reusable client
+  mechanics. Never move browser configuration into a backend catch-all or infer
+  backend authority from a frontend flag.
+
 - `nodics.exp` owns `apps.json`, workspace-level list/status/fetch/verify
   tools, and shared frontend workspace guidance.
 - Child frontend applications own their own source
